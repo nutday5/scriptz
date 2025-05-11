@@ -10,6 +10,7 @@ GAMEID="1042420" #Exp or Stable
 WSGAME="221100" #Workshop game id
 STEAMUSR="YOURNAME" #You
 MODS="" #Populates start.sh
+LIMITS="limitFPS=60" #because yes
 LC_PATH1="/home/dayzserver/servers/steamcmd/steamcmd.sh"
 LC_PATH2="/home/dayzserver/servers/dayz-server/"
 KY_PATH="/home/dayzserver/servers/dayz-server/keys/dayz.bikey"
@@ -84,6 +85,8 @@ while IFS=: read -r steam_id text_descriptor; do
   if [[ $? -eq 0 ]]; then
     echo "Key: $steam_id ($text_descriptor)"
     KY_CM2+="ln -sf /home/dayzserver/servers/dayz-server/steamapps/workshop/content/221100/$steam_id/keys/*  ${LC_PATH2}keys/ \n"
+    KY_CM2+="ln -sf /home/dayzserver/servers/dayz-server/steamapps/workshop/content/221100/$steam_id/Keys/*  ${LC_PATH2}keys/ \n"
+    KY_CM2+="ln -sf /home/dayzserver/servers/dayz-server/steamapps/workshop/content/221100/$steam_id/KEYS/*  ${LC_PATH2}keys/ \n"
   else
     echo "Invalid Steam ID: $steam_id"
   fi
@@ -94,6 +97,6 @@ echo -e "$KY_CM2" >> "$OUTPUT_FILE"
 echo "server update script written to $OUTPUT_FILE"
 
 # write start.bat ;)
-echo -e "#!/bin/bash\n${LC_PATH2}DayZServer -config=serverDZ.cfg \"-mod=$MODS\" -bepath= -profiles=profiles " >> "$START_FILE"
+echo -e "#!/bin/bash\n${LC_PATH2}DayZServer -config=serverDZ.cfg \"-mod=$MODS\" -bepath= -profiles=profiles $LIMITS" >> "$START_FILE"
 #todo provide options for setting -dologs -adminlog -netlog -freezecheck
 echo "server start script written to $START_FILE"
