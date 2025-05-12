@@ -10,7 +10,7 @@ GAMEID="1042420" #Exp or Stable
 WSGAME="221100" #Workshop game id
 STEAMUSR="YOURNAME" #You
 MODS="" #Populates start.sh
-LIMITS="limitFPS=60" #because yes
+LIMITS="-limitFPS=60" #because yes
 LC_PATH1="/home/dayzserver/servers/steamcmd/steamcmd.sh"
 LC_PATH2="/home/dayzserver/servers/dayz-server/"
 KY_PATH="/home/dayzserver/servers/dayz-server/keys/dayz.bikey"
