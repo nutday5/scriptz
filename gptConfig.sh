@@ -6,10 +6,15 @@
 # Input file format is steamid:descriptor (123456789:Modname)
 #######
 
+# 12/5/25 TODO: 
+# Explain more about the switches
+# Provide more example steam_ids.txt
+
+####### Start your edits here ################
 GAMEID="1042420" #Exp or Stable
 WSGAME="221100" #Workshop game id
 STEAMUSR="YOURNAME" #You
-MODS="" #Populates start.sh
+MODS="" #for local dev, inserts yourmod to start.sh
 LIMITS="-limitFPS=60" #because yes
 LC_PATH1="/home/dayzserver/servers/steamcmd/steamcmd.sh"
 LC_PATH2="/home/dayzserver/servers/dayz-server/"
@@ -19,6 +24,9 @@ LC_START="$LC_PATH1 +force_install_dir $LC_PATH2"
 INPUT_FILE="/home/dayzserver/scripts/steam_ids.txt"
 OUTPUT_FILE="/home/dayzserver/scripts/update.sh"
 START_FILE="/home/dayzserver/scripts/start.sh"
+####### Stop editing now ################
+
+
 # Clear or create the output file
 > "$OUTPUT_FILE"
 > "$START_FILE"
