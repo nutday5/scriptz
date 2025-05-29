@@ -52,6 +52,10 @@ validate_steam_id() {
 
 # Read and process each Steam ID and text descriptor from the input file
 while IFS=: read -r steam_id text_descriptor; do
+
+ # Skip comments and empty lines
+  [[ -z "$steam_id" || "$steam_id" =~ ^# ]] && continue
+
   validate_steam_id "$steam_id"
   if [[ $? -eq 0 ]]; then
     echo "Mod: $steam_id ($text_descriptor)"
@@ -63,6 +67,7 @@ while IFS=: read -r steam_id text_descriptor; do
 done < "$INPUT_FILE"
 MC_CMD+=" +quit"
 echo -e "$MC_CMD" >> "$OUTPUT_FILE"
+
 
 SL_CMD=""
 # Read and process each Steam ID to rebuild symlinks
