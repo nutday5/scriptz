@@ -87,6 +87,23 @@ STEAMUSR="YOURNAME" #You
 
 `vi ./scripts/steam_ids.txt`
 
+Lines starting with `#` will be treated as comments and ignored
+
+Here is a dev server steam_ids.txt loadout:
+```
+# Expansion Experimental
+1559212036:Community Framework
+2545327648:Dabs Framework
+1564026768:COT
+2291785546:Expansion Core Exp
+2178159769:Expansion Licensed Exp
+2291785676:Expansion Vehicles Exp
+2793893784:Expansion Animations Exp
+2792964110:Expansion Missions Exp
+2792964120:Expansion AI Exp
+```
+
+
 ### Now you can run *gptConfig.sh* to create your *start.sh* and *update.sh* files:
 
 `./scripts/gptConfig.sh`
